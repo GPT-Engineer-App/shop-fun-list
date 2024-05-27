@@ -37,7 +37,14 @@ const Index = () => {
       <VStack spacing={4} width="100%">
         <Text fontSize="2xl">Gamified Shopping List</Text>
         <HStack width="100%">
-          <Input placeholder="Add a new item" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+          <Input
+            placeholder="Add a new item"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") addItem();
+            }}
+          />
           <IconButton aria-label="Add item" icon={<FaPlus />} onClick={addItem} />
         </HStack>
         <VStack spacing={2} width="100%">
